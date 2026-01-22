@@ -90,7 +90,7 @@ func emailWorker(id int, accounts []*Account, queue <-chan MailTask, wg *sync.Wa
 		}
 
 
-		delay := 5 + rand.Intn(10)
+		delay := 30 + rand.Intn(30)
 		time.Sleep(time.Duration(delay) * time.Second)
 	}
 }
@@ -127,4 +127,5 @@ func main() {
 	close(mailQueue)
 	wg.Wait()
 	fmt.Println("Operasyon bitti. Tüm hedefler işlendi!")
+
 }
